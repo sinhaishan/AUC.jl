@@ -7,3 +7,9 @@ y_score = [0.3, 0.2, 0.3, 0.23, 0.5, 0.34, 0.45, 0.54, 0.6, 0.7, 0.8, 0.65, 0.5,
 res = roc_auc_score(y, y_score)
 
 @test isequal(res, 0.7266666666666667)
+
+
+
+res2 = AUC.auc(y, y_score, true)
+
+@test isequal(res2, 0.44999999999999996)
