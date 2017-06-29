@@ -1,4 +1,4 @@
-# AUC
+# AUC.jl
 
 [![Build Status](https://travis-ci.org/bcbi/AUC.jl.svg?branch=master)](https://travis-ci.org/bcbi/AUC.jl)
 
@@ -18,6 +18,7 @@ This is a simple package that calculates the area under the curve (AUC) for a re
 Below is an example of the use of `roc_auc_score()`.
      
 ```julia
+julia> using AUC
 
 julia> y = [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
             1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1]
