@@ -70,12 +70,12 @@ function sortperm2(x, y; rev = false)
             # println("x_i is $(x_sorted[i]) and x_(i+1) is $(x_sorted[i+1])")
             if x_sorted[i] == x_sorted[i+1]
                 if rev && y[ord1][i] < y[ord1][i+1]
-                    println("(1.) Switching $(y[ord1][i]) with $(y[ord1][i+1])")
+                    #println("(1.) Switching $(y[ord1][i]) with $(y[ord1][i+1])")
                     ord1[i], ord1[i+1] = ord1[i+1], ord1[i]
                     i = i > 1 ? i - 1 : i
                     continue
                 elseif !rev && y[ord1][i] > y[ord1][i+1]
-                    println("(2.) Switching $(y[ord1][i]) with $(y[ord1][i+1])")
+                    #println("(2.) Switching $(y[ord1][i]) with $(y[ord1][i+1])")
                     ord1[i], ord1[i+1] = ord1[i+1], ord1[i]
                     i = i > 1 ? i - 1 : i
                     continue
