@@ -10,6 +10,6 @@ res = roc_auc_score(y, y_score)
 
 
 
-res2 = AUC.auc(y, y_score, true)
+res2 = AUC.auc(y, y_score, reorder = true)
 
 @test isequal(res2, 0.44999999999999996)
