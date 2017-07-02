@@ -107,7 +107,7 @@ end
 # trapsum([1, 2, 3], [4, 6, 8])     # 8.0
 
 
-function auc(x, y, reorder = false)
+function auc(x, y; reorder = false)
     direction = 1
     if reorder
         order = sortperm2(x, y)
@@ -137,14 +137,18 @@ curve (ROC). This function takes two vectors, `y_true` and `y_score`. The vector
 observed `y` in a binary classification problem. And the vector `y_score` is the real-valued 
 prediction for each observation.
 """
-function roc_auc_score(y_true, y_score)
+function roc_auc_score(y_true::T, y_score::S) where {T <: AbstractArray{<:Real, 1}, S <: AbstractArray{<:Real, 1}}
     if length(Set(y_true)) == 1
         warn("Only one class present in y_true.\n
               The AUC is not defined in that case; returning -Inf.")
         res = -Inf
+    elseif length(Set(y_true)) ≠ 2
+        warn("More than two classes present in y_true.\n
+              The AUC is not defined in that case; returning -Inf.")
+        res = -Inf
     else
         fpr, tpr, thresholds = roc_curve(y_true, y_score)
-        res = auc(fpr, tpr, true)
+        res = auc(fpr, tpr, reorder = true)
     end
     res
 end
