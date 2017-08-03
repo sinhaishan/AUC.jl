@@ -138,7 +138,7 @@ observed `y` in a binary classification problem. And the vector `y_score` is the
 prediction for each observation.
 """
 # function roc_auc_score(y_true::T, y_score::S) where {T <: AbstractArray{<:Real, 1}, S <: AbstractArray{<:Real, 1}}
-function roc_auc_score(y_true::T, y_score::S)
+function roc_auc_score(y_true, y_score)
     if length(Set(y_true)) == 1
         warn("Only one class present in y_true.\n
               The AUC is not defined in that case; returning -Inf.")
