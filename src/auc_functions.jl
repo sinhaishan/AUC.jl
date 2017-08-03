@@ -137,7 +137,8 @@ curve (ROC). This function takes two vectors, `y_true` and `y_score`. The vector
 observed `y` in a binary classification problem. And the vector `y_score` is the real-valued 
 prediction for each observation.
 """
-function roc_auc_score(y_true::T, y_score::S) where {T <: AbstractArray{<:Real, 1}, S <: AbstractArray{<:Real, 1}}
+# function roc_auc_score(y_true::T, y_score::S) where {T <: AbstractArray{<:Real, 1}, S <: AbstractArray{<:Real, 1}}
+function roc_auc_score(y_true::T, y_score::S)
     if length(Set(y_true)) == 1
         warn("Only one class present in y_true.\n
               The AUC is not defined in that case; returning -Inf.")
